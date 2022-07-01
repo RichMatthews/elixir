@@ -105,5 +105,3 @@ defmodule Wordle do
     end
   end
 end
-
-Wordle.play(0, RandomWord.generate_random_word())
