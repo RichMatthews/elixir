@@ -80,10 +80,9 @@ defmodule Wordle do
           previous_portion_of_word
           |> String.split("", trim: true)
           |> Enum.filter(&(&1 == letter))
-          |> Kernel.length() >= 0
+          |> length() >= 0
 
-        letter_already_covered =
-          letter_already_occured == Kernel.length(occurences_of_letter_in_word)
+        letter_already_covered = letter_already_occured == length(occurences_of_letter_in_word)
 
         all_occurences_are_already_correct =
           List.delete_at(guess, index)
@@ -92,7 +91,7 @@ defmodule Wordle do
 
         if letter_already_covered or
              (all_occurences_are_already_correct and
-                Kernel.length(Enum.filter(guess, &(letter == String.downcase(&1)))) > 1) do
+                length(Enum.filter(guess, &(letter == String.downcase(&1)))) > 1) do
           "_"
         else
           letter
