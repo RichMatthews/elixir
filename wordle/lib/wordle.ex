@@ -64,7 +64,9 @@ defmodule Wordle do
   def get_previous_portion_of_word(0 = _index, _guess), do: ""
 
   def get_previous_portion_of_word(index, guess) do
-    String.slice(Enum.join(guess), 0..index)
+    guess
+    |> Enum.join()
+    |> String.slice(0..index)
   end
 
   def check_letter_in_word({letter, index}, guess, word_of_the_day) do
