@@ -23,8 +23,13 @@ defmodule Wordle do
   def check_guess(guess, word_of_the_day) do
     guess_with_correct_letters = determine_correct_letters_in_guess(guess, word_of_the_day)
 
-    Enum.zip(guess_with_correct_letters, [0, 1, 2, 3, 4])
-    |> Enum.map(&check_letter_in_word(&1, guess_with_correct_letters, word_of_the_day))
+    outcome =
+      Enum.zip(guess_with_correct_letters, [0, 1, 2, 3, 4])
+      |> Enum.map(&check_letter_in_word(&1, guess_with_correct_letters, word_of_the_day))
+
+    IO.puts(outcome)
+
+    outcome
   end
 
   def determine_correct_letters_in_guess(guess, word_of_the_day) do
@@ -49,9 +54,7 @@ defmodule Wordle do
   end
 
   def check_letter_in_correct_position({letter, index}, word_of_the_day) do
-    corresponding_letter_of_index_to_check = Enum.at(word_of_the_day, index)
-
-    if corresponding_letter_of_index_to_check == letter do
+    if Enum.at(word_of_the_day, index) == letter do
       String.upcase(letter)
     else
       String.downcase(letter)
