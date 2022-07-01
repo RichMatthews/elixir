@@ -1,4 +1,8 @@
 defmodule RandomWord do
+  @moduledoc """
+  Random word generator
+  """
+
   @random_words [
     "notes",
     "ylems",
@@ -27,7 +31,7 @@ defmodule RandomWord do
     "amuse"
   ]
 
-  def generate_random_word() do
+  def generate_random_word do
     Enum.random(@random_words) |> String.split("", trim: true)
   end
 end

@@ -25,7 +25,7 @@ defmodule Wordle do
 
     Enum.zip(guess_with_correct_letters, [0, 1, 2, 3, 4])
     |> Enum.map(&check_letter_in_word(&1, guess_with_correct_letters, word_of_the_day))
-    |> IO.inspect()
+    |> IO.puts()
   end
 
   def determine_correct_letters_in_guess(guess, word_of_the_day) do
@@ -35,7 +35,7 @@ defmodule Wordle do
 
   def check_if_guess_correct(guess, total_guesses, word_of_the_day) do
     if String.downcase(Enum.join(guess)) == Enum.join(word_of_the_day) do
-      IO.inspect(
+      IO.puts(
         "You won! The correct answer was #{word_of_the_day}. You got it in #{total_guesses} guesses"
       )
     else
@@ -44,7 +44,7 @@ defmodule Wordle do
   end
 
   def check_if_guesses_remain(total_guesses, _) when total_guesses == 6 do
-    IO.inspect("bad luck out of guesses")
+    IO.puts("bad luck out of guesses")
   end
 
   def check_if_guesses_remain(total_guesses, word_of_the_day) do
