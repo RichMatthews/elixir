@@ -24,13 +24,13 @@ defmodule Wordle do
     guess_with_correct_letters = determine_correct_letters_in_guess(guess, word_of_the_day)
 
     Enum.zip(guess_with_correct_letters, [0, 1, 2, 3, 4])
-    |> Enum.map(fn x -> check_letter_in_word(x, guess_with_correct_letters, word_of_the_day) end)
+    |> Enum.map(&check_letter_in_word(&1, guess_with_correct_letters, word_of_the_day))
     |> IO.inspect()
   end
 
   def determine_correct_letters_in_guess(guess, word_of_the_day) do
     Enum.zip(guess, [0, 1, 2, 3, 4])
-    |> Enum.map(fn x -> check_letter_in_correct_position(x, word_of_the_day) end)
+    |> Enum.map(&check_letter_in_correct_position(&1, word_of_the_day))
   end
 
   def check_if_guess_correct(guess, total_guesses, word_of_the_day) do
@@ -81,7 +81,7 @@ defmodule Wordle do
         letter_already_occured =
           previous_portion_of_word
           |> String.split("", trim: true)
-          |> Enum.filter(fn x -> x == letter end)
+          |> Enum.filter(&(&1 == letter))
           |> Kernel.length() >= 0
 
         letter_already_covered =
@@ -89,12 +89,12 @@ defmodule Wordle do
 
         all_occurences_are_already_correct =
           List.delete_at(guess, index)
-          |> Enum.filter(fn x -> letter == String.downcase(x) end)
-          |> Enum.all?(fn x -> String.upcase(x) == x end)
+          |> Enum.filter(&(letter == String.downcase(&1)))
+          |> Enum.all?(&(String.upcase(&1) == &1))
 
         if letter_already_covered or
              (all_occurences_are_already_correct and
-                Kernel.length(Enum.filter(guess, fn x -> letter == String.downcase(x) end)) > 1) do
+                Kernel.length(Enum.filter(guess, &(letter == String.downcase(&1)))) > 1) do
           "_"
         else
           letter
