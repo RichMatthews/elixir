@@ -40,8 +40,8 @@ end
 
 defmodule Wordle do
   def play(total_guesses, word_of_the_day) do
-    letters = "qwertyuiopasdfghjklzxcvbnm" |> String.split("", trim: true)
-    IO.inspect("Remaining letters: #{letters}")
+    # letters = "qwertyuiopasdfghjklzxcvbnm" |> String.split("", trim: true)
+    # IO.inspect("Remaining letters: #{letters}")
 
     guess =
       IO.gets("What is your guess? (#{total_guesses + 1})\n")
