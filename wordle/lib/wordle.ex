@@ -1,9 +1,11 @@
-# based on the popular game Wordle: https://www.nytimes.com/games/wordle/index.html
-# In this version the following indicates the letter guessed
-# "_" indicates the letter is not in the word
-# "p" indicates a p is in the word but not in the correct position
-# "P" indicates a p is in the word and is in the correct position
 defmodule Wordle do
+  @moduledoc """
+  based on the popular game Wordle: https://www.nytimes.com/games/wordle/index.html
+  In this version the following indicates the letter guessed
+  "_" indicates the letter is not in the word
+  "p" indicates a p is in the word but not in the correct position
+  "P" indicates a p is in the word and is in the correct position
+  """
   def play(total_guesses, word_of_the_day) do
     # letters = "qwertyuiopasdfghjklzxcvbnm" |> String.split("", trim: true)
     # IO.inspect("Remaining letters: #{letters}")
