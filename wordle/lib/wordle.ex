@@ -72,7 +72,7 @@ defmodule Wordle do
       letter
     else
       if Enum.member?(word_of_the_day, letter) do
-        occurences_of_letter_in_word = Enum.filter(word_of_the_day, fn x -> x == letter end)
+        occurences_of_letter_in_word = Enum.filter(word_of_the_day, &(&1 == letter))
 
         previous_portion_of_word = get_previous_portion_of_word(index, guess)
 
