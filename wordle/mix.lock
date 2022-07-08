@@ -1,0 +1,6 @@
+%{
+  "color": {:hex, :color, "0.1.0", "76bb720ee15697573a205966f1322005c4fd7e4a88920f80846d2c7543e1b3bc", [:mix], [], "hexpm", "c864b4d5f83050f810f311dff674c5486f87c028d8cd495612a0f97829afe6ff"},
+  "colors": {:hex, :colors, "1.1.1", "9e6d0c6bbf44447e9fd4a2929db98f95ce4e2181b33d57ae8f30e8c1ce12935c", [:mix], [], "hexpm", "f1c06de5d0c23dc112318d7339083a8cc4c0fc944fd2cbf38b8474adcf77419a"},
+  "file_system": {:hex, :file_system, "0.2.10", "fb082005a9cd1711c05b5248710f8826b02d7d1784e7c3451f9c1231d4fc162d", [:mix], [], "hexpm", "41195edbfb562a593726eda3b3e8b103a309b733ad25f3d642ba49696bf715dc"},
+  "mix_test_watch": {:hex, :mix_test_watch, "1.1.0", "330bb91c8ed271fe408c42d07e0773340a7938d8a0d281d57a14243eae9dc8c3", [:mix], [{:file_system, "~> 0.2.1 or ~> 0.3", [hex: :file_system, repo: "hexpm", optional: false]}], "hexpm", "52b6b1c476cbb70fd899ca5394506482f12e5f6b0d6acff9df95c7f1e0812ec3"},
+}
